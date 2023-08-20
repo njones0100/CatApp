@@ -1,0 +1,5 @@
+ (Resting Energy Requirements or RER), which can be calculated by multiplying the animal’s body weight in kilograms raised to the ¾ power by 70, for example, a 10kg (22lb) adult neutered dog of healthy weight needs RER = 70(10kg)3/4 ≈ 400 Calories/day.
+
+
+
+To determine your cat's Body Condition Score, please refer to the WSAVA guidelines: https://wsava.org/wp-content/uploads/2020/08/Body-Condition-Score-cat-updated-August-2020.pdf
