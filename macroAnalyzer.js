@@ -1,19 +1,20 @@
-// Calculate Gross Energy (GE) in kcal
-function calculateGEKcal(crudeProtein, crudeFat, nfe, crudeFibre) {
-  return 5.7 * crudeProtein + 9.4 * crudeFat + 4.1 * (nfe + crudeFibre);
-}
+class macroAnalyzer {
 
-// Calculate energy digestibility for cats in %
-function calculateEnergyDigestibilityCats(crudeFibreDM) {
-  return 87.9 - 0.88 * crudeFibreDM;
-}
+    constructor { };
 
-// Calculate Digestible Energy (DE) in kcal
-function calculateDEKcal(geKcal, energyDigestibility) {
-  return (geKcal * energyDigestibility) / 100;
-}
+    calculateMetabolizableEnergy(
+        crudeProtein,
+        crudeFat,
+        crudeFiber,
+        moisture,
+        ash
+    ) {
+        let nitrogenFreeExtract = 100 - (crudeProtein + crudeFat + crudeFiber + moisture + ash);
+        let grossEnergy = (0.057 * crudeProtein) + (0.094 * crudeFat) + (4.1 * (nitrogenFreeExtract + crudeFiber));
+        let energyDigestibility;
+        let digestibleEnergy;
+        let metabolizableEnergy;
+    
+      }
 
-// Calculate Metabolisable Energy (ME) for cats in kcal
-function calculateMEKcalCats(deKcal, crudeProtein) {
-  return deKcal - 0.77 * crudeProtein;
 }
