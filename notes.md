@@ -18,12 +18,12 @@ I've had to make some assumptions about UI decisions, and I'm not clear on where
 
 It appears that most packaging either lists the metabolizable energy or provides the necessary information to calculate it. I've updated the calculator to use the formula 70 \* weight^0.75 in accordance with the FEDIAF guidelines linked above.
 
-The MacroAnalyzer formula requires an input for ash, but this may be difficult to determine if it is not listed on the packaging - and the first example I looked at did not (but they did list their calories in terms of metabolizableEnergy). If ash is not listed on the packaging, I have not been able to find a simple and reliable method for determining it's content level.
+The MacroAnalyzer formula requires an input for ash, but this may be difficult to determine if it is not listed on the packaging - and the first example I looked at did not (but they did list their calories in terms of metabolizableEnergy). I have not been able to find a simple and reliable method for determining the content level when ash is not listed on the packaging.
 
 "When ash is used related to animal foods, it means minerals – calcium, phosphorus, iron, copper, zinc, etc. Ash is a crude measurement of the total amounts of minerals in a diet."
 https://vetnutrition.tufts.edu/2022/08/all-about-ash/#:~:text=Ash%20is%20a%20crude%20measurement,%27t%20burn%2C%20namely%20minerals.
 
-Using https://www.chewy.com/royal-canin-indoor-adult-dry-cat-food/dp/33853 as an example for analysis, and assuming 8% ash content, the calculator is within 3 calories of the ME/cup (90g) as listed on the packaging (322.22 obtained by the calculator and 325 listed on the packaging)
+Using https://www.chewy.com/royal-canin-indoor-adult-dry-cat-food/dp/33853 as an example for analysis, and assuming 8% ash content(5-8% appears to be the average), the calculator is within 3 calories of the ME/cup (90g) as listed on the packaging (322.22 obtained by the calculator and 325 listed on the packaging)
 
 The CaloricRequirement output by the calculateCaloricRequirement in the app.mjs example is 285. We'll need a user input for "kCal ME/kg" (that appears to be how the calories are most often listed on packaging), then use that figure to determine the number of grams to meet the caloricRequirement.
 

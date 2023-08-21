@@ -19,7 +19,7 @@ const metabolizableEnergy = MacroAnalyzer.calculateMetabolizableEnergy(
   0.12, // crudeFat
   0.057, // crudeFiber
   0.08, // moisture
-  0.08 // ash (refers to mineral content)
+  0.08 // ash
 );
 
 const caloricRequirement =
@@ -35,5 +35,5 @@ const weightConversion = LbsToKG.lbsConverter(weight);
 // Output the results
 console.log("Metabolizable Energy per serving:", metabolizableEnergy);
 console.log("Caloric Requirement:", caloricRequirement);
-console.log("You shoud feed your cat", numberOfGrams, "grams of food.");
+console.log("You should feed your cat", numberOfGrams, "grams of food.");
 console.log("The weight in KG is: ", weightConversion);
