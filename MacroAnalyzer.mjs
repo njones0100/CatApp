@@ -1,8 +1,7 @@
-// this class calculates the Metabolizable Energy in a serving of food based on the macronutrient profile
+// this class calculates the Metabolizable Energy in 100g of food based on the macronutrient profile
 // formulas obtained from the FEDIAF Nutritional Guidelijnes found on p50 of https://europeanpetfood.org/wp-content/uploads/2022/03/Updated-Nutritional-Guidelines.pdf
 
 export default class MacroAnalyzer {
-  constructor() {}
   static percentageToDecimal = 0.01;
   static calculateMetabolizableEnergy(
     crudeProtein,
@@ -26,9 +25,9 @@ export default class MacroAnalyzer {
       4.1 * (nitrogenFreeExtract + crudeFiber);
     let energyDigestibility = 87.9 - 0.88 * crudeFiber;
     let digestibleEnergy = (grossEnergy * energyDigestibility) / 100;
-    let metabolizableEnergy = (digestibleEnergy - 0.77 * crudeProtein).toFixed(
-      2
-    ); // calculates and terminates the resulting number after the second decimal place (Prettier is doing some annoying formatting here)
+    let metabolizableEnergy = Math.round(
+      digestibleEnergy - 0.77 * crudeProtein
+    ); // performs the calculation and rounds the result
 
     return metabolizableEnergy;
   }

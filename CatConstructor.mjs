@@ -1,3 +1,5 @@
+// creates the cat object to be used by the calculator
+
 export default class Cat {
   constructor(lifeStage, weight, bodyCondition, isIndoor, isSterilized) {
     // if (
@@ -19,5 +21,3 @@ export default class Cat {
     this.isSterilized = isSterilized; // calculator expects a boolean here as well (radio buttons)
   }
 }
-
-// const userCat = new Cat(catAge, catWeight, catActivityLevel);

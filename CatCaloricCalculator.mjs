@@ -1,10 +1,12 @@
+// does the caloric requirement calculations
+
 export default class CatCaloricCalculator {
   constructor(cat) {
     this.cat = cat;
   }
 
-  calculateCaloricRequirement() {
-    const restingEnergyRequirement = 70 * Math.pow(this.cat.weight, 0.75); /** 
+  calculateCaloricRequirement(cat) {
+    const restingEnergyRequirement = 70 * Math.pow(this.cat.weight, 0.67); /** 
     RER calculation obtained from: https://www.aaha.org/globalassets/02-guidelines/2021-nutrition-and-weight-management/resourcepdfs/nutritiongl_box1.pdf
     */
     let lifeStageFactor;
@@ -27,7 +29,7 @@ export default class CatCaloricCalculator {
     // "==" is replaced with "===" in these if-else statements to ensure both value and type equality - expects input from radio button or drop down box
     // need to update the right side with whatever is assigned by the dropdown / radio
     if (this.cat.bodyCondition === "under") {
-      bodyConditionFactor = 1.5;
+      bodyConditionFactor = 1.4;
     } else if (this.cat.bodyCondition === "ideal") {
       bodyConditionFactor = 1.0;
     } else if (this.cat.bodyCondition === "over") {
@@ -59,12 +61,12 @@ export default class CatCaloricCalculator {
     let maintenanceEnergyRequirement =
       lifeStageFactor * restingEnergyRequirement;
     // variable returned by the function ...
-    const caloricRequirement = (
+    const caloricRequirement = Math.round(
       maintenanceEnergyRequirement *
-      bodyConditionFactor *
-      activityFactor *
-      isSterilizedFactor
-    ).toFixed(2); // calculates and terminates the resulting number after the second decimal place
+        bodyConditionFactor *
+        activityFactor *
+        isSterilizedFactor
+    ); // performs the calculation and rounds the result
 
     // ... to output to the user
     return caloricRequirement;
