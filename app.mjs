@@ -11,7 +11,7 @@ import ConvertLbs from "./lbsConverter.mjs";
 const userCat = new Cat("adult", 4, "ideal", true, true); // Create a sample cat
 
 // variables used for testing
-const weight = 2.2;
+//const weight = 2.2;
 const kCalPerKG = 3543;
 
 const metabolizableEnergy = MacroAnalyzer.calculateMetabolizableEnergy(
@@ -30,7 +30,7 @@ const numberOfGrams = ConvertCaloriesToGrams.caloriesToGramsConverter(
   kCalPerKG
 );
 
-const weightConversion = ConvertLbs.lbsConverter(weight);
+//const weightConversion = ConvertLbs.lbsConverter(weight);
 
 // Output the results
 console.log("Metabolizable Energy per serving:", metabolizableEnergy);
