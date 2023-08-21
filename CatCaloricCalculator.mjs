@@ -5,7 +5,7 @@ export default class CatCaloricCalculator {
     this.cat = cat;
   }
 
-  calculateCaloricRequirement(cat) {
+  static calculateCaloricRequirement(cat) {
     const restingEnergyRequirement = 70 * Math.pow(this.cat.weight, 0.67); /** 
     RER calculation obtained from: https://www.aaha.org/globalassets/02-guidelines/2021-nutrition-and-weight-management/resourcepdfs/nutritiongl_box1.pdf
     */

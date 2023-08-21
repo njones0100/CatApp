@@ -2,7 +2,6 @@
 // formulas obtained from the FEDIAF Nutritional Guidelijnes found on p50 of https://europeanpetfood.org/wp-content/uploads/2022/03/Updated-Nutritional-Guidelines.pdf
 
 export default class MacroAnalyzer {
-  static percentageToDecimal = 0.01;
   static calculateMetabolizableEnergy(
     crudeProtein,
     crudeFat,
@@ -10,12 +9,13 @@ export default class MacroAnalyzer {
     moisture,
     ash // refers to mineral content - a rough figure can be obtained by adding calcium and phosphorus (we could use separate fields here)
   ) {
+    const percentageToDecimal = 0.01;
     //if user enters percentage as 10 rather than a decimal figure of 0.10, these if statements will convert the number to a decimal percentage (i.e., 10/100 = 0.10)
-    if (crudeProtein > 1) crudeProtein *= MacroAnalyzer.percentageToDecimal;
-    if (crudeFat > 1) crudeFat *= MacroAnalyzer.percentageToDecimal;
-    if (crudeFiber > 1) crudeFiber *= MacroAnalyzer.percentageToDecimal;
-    if (moisture > 1) moisture *= MacroAnalyzer.percentageToDecimal;
-    if (ash > 1) ash *= MacroAnalyzer.percentageToDecimal;
+    if (crudeProtein > 1) crudeProtein *= percentageToDecimal;
+    if (crudeFat > 1) crudeFat *= percentageToDecimal;
+    if (crudeFiber > 1) crudeFiber *= percentageToDecimal;
+    if (moisture > 1) moisture *= percentageToDecimal;
+    if (ash > 1) ash *= percentageToDecimal;
 
     let nitrogenFreeExtract =
       100 - (crudeProtein + crudeFat + crudeFiber + moisture + ash);
