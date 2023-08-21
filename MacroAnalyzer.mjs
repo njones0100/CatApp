@@ -7,7 +7,7 @@ export default class MacroAnalyzer {
     crudeFat,
     crudeFiber,
     moisture,
-    ash // refers to mineral content - a rough figure can be obtained by adding calcium and phosphorus (we could use separate fields here)
+    ash // refers to mineral content (see notes.md)
   ) {
     const percentageToDecimal = 0.01;
     //if user enters percentage as 10 rather than a decimal figure of 0.10, these if statements will convert the number to a decimal percentage (i.e., 10/100 = 0.10)
