@@ -1,12 +1,8 @@
 // does the caloric requirement calculations
 
 export default class CatCaloricCalculator {
-  constructor(cat) {
-    this.cat = cat;
-  }
-
   static calculateCaloricRequirement(cat) {
-    const restingEnergyRequirement = 70 * Math.pow(this.cat.weight, 0.67); /** 
+    const restingEnergyRequirement = 70 * Math.pow(cat.weight, 0.67); /** 
     RER calculation obtained from: https://www.aaha.org/globalassets/02-guidelines/2021-nutrition-and-weight-management/resourcepdfs/nutritiongl_box1.pdf
     */
     let lifeStageFactor;
@@ -16,11 +12,11 @@ export default class CatCaloricCalculator {
 
     // "==" is replaced with "===" in these if-else statements to ensure both value and type equality - expects input from radio button or drop down box
     // need to update the right side with whatever is assigned by the dropdown / radio
-    if (this.cat.lifeStage === "kitten") {
+    if (cat.lifeStage === "kitten") {
       lifeStageFactor = 2;
-    } else if (this.cat.lifeStage === "adult") {
+    } else if (cat.lifeStage === "adult") {
       lifeStageFactor = 1.2;
-    } else if (this.cat.lifeStage === "senior") {
+    } else if (cat.lifeStage === "senior") {
       lifeStageFactor = 0.85;
     } else {
       throw new Error("Please select a life stage."); //exception handling in place for redundancy, can remove if handled elsewhere
@@ -28,20 +24,20 @@ export default class CatCaloricCalculator {
 
     // "==" is replaced with "===" in these if-else statements to ensure both value and type equality - expects input from radio button or drop down box
     // need to update the right side with whatever is assigned by the dropdown / radio
-    if (this.cat.bodyCondition === "under") {
+    if (cat.bodyCondition === "under") {
       bodyConditionFactor = 1.4;
-    } else if (this.cat.bodyCondition === "ideal") {
+    } else if (cat.bodyCondition === "ideal") {
       bodyConditionFactor = 1.0;
-    } else if (this.cat.bodyCondition === "over") {
+    } else if (cat.bodyCondition === "over") {
       bodyConditionFactor = 0.8;
     } else {
       throw new Error("Please indicate the cat's body condition."); //exception handling in place for redundancy, can remove if handled elsewhere
     }
 
     // Adjust requirement based on activity level
-    if (this.cat.isIndoor == true) {
+    if (cat.isIndoor == true) {
       activityFactor = 1.0;
-    } else if (this.cat.isIndoor == false) {
+    } else if (cat.isIndoor == false) {
       activityFactor = 1.2;
     } else {
       throw new Error(
@@ -50,9 +46,9 @@ export default class CatCaloricCalculator {
     }
 
     // Adjust requirement based on sterilization status
-    if (this.cat.isSterilized == true) {
+    if (cat.isSterilized == true) {
       isSterilizedFactor = 1.2;
-    } else if (this.cat.isSterilized == false) {
+    } else if (cat.isSterilized == false) {
       isSterilizedFactor = 1.4;
     } else {
       throw new Error("Please select whether or not the cat is sterilized."); //exception handling in place for redundancy, can remove if handled elsewhere
