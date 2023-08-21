@@ -1,6 +1,6 @@
-class Cat {
-  constructor(lifestage, weight, bodyCondition, isIndoor, isSterilized) {
-    this.liestage = lifestage; // Cat's age in years
+export default class Cat {
+  constructor(lifeStage, weight, bodyCondition, isIndoor, isSterilized) {
+    this.lifeStage = lifeStage; // Cat's age in years
     this.weight = weight; // Cat's weight (current formula assumes KG)
     this.bodyCondition = bodyCondition;
     this.isIndoor = isIndoor; // Boolean for activity level (indoor/outdoor)
