@@ -1,4 +1,4 @@
-//this class calculates the Metabolizable Energy in a food based on the macronutrient profile
+// this class calculates the Metabolizable Energy in a serving of food based on the macronutrient profile
 // formulas obtained from the FEDIAF Nutritional Guidelijnes found on p50 of https://europeanpetfood.org/wp-content/uploads/2022/03/Updated-Nutritional-Guidelines.pdf
 
 export default class MacroAnalyzer {
@@ -9,14 +9,14 @@ export default class MacroAnalyzer {
     crudeFat,
     crudeFiber,
     moisture,
-    ash
+    ash // refers to mineral content - a rough figure can be obtained by adding calcium and phosphorus (we could use separate fields here)
   ) {
-    //if user enters percentage as 10 rather than 0.10 these if statements will convert the number to a decimal percentage (i.e., 10/100 = 0.10)
-    if (crudeProtein > 1) crudeProtein *= MacroAnalyzer.GRAMS_TO_PERCENT;
-    if (crudeFat > 1) crudeFat *= MacroAnalyzer.GRAMS_TO_PERCENT;
-    if (crudeFiber > 1) crudeFiber *= MacroAnalyzer.GRAMS_TO_PERCENT;
-    if (moisture > 1) moisture *= MacroAnalyzer.GRAMS_TO_PERCENT;
-    if (ash > 1) ash *= MacroAnalyzer.GRAMS_TO_PERCENT;
+    //if user enters percentage as 10 rather than a decimal figure of 0.10, these if statements will convert the number to a decimal percentage (i.e., 10/100 = 0.10)
+    if (crudeProtein > 1) crudeProtein *= MacroAnalyzer.percentageToDecimal;
+    if (crudeFat > 1) crudeFat *= MacroAnalyzer.percentageToDecimal;
+    if (crudeFiber > 1) crudeFiber *= MacroAnalyzer.percentageToDecimal;
+    if (moisture > 1) moisture *= MacroAnalyzer.percentageToDecimal;
+    if (ash > 1) ash *= MacroAnalyzer.percentageToDecimal;
 
     let nitrogenFreeExtract =
       100 - (crudeProtein + crudeFat + crudeFiber + moisture + ash);
@@ -28,7 +28,7 @@ export default class MacroAnalyzer {
     let digestibleEnergy = (grossEnergy * energyDigestibility) / 100;
     let metabolizableEnergy = (digestibleEnergy - 0.77 * crudeProtein).toFixed(
       2
-    ); // calculates and terminates the resulting number after the second decimal place
+    ); // calculates and terminates the resulting number after the second decimal place (Prettier is doing some annoying formatting here)
 
     return metabolizableEnergy;
   }
